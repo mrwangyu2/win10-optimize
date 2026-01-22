@@ -1,0 +1,129 @@
+{
+  "profile": {
+    "name": "Windows 10 优化配置",
+
+    "version": "1.0",
+    "target_os": "Windows 10",
+    "description": "禁用不必要的Windows服务以提升性能",
+    "author": "yu wang"
+  },
+  "categories": {
+    "services": {
+      "description": "禁用影响性能的Windows服务",
+      "tasks": [
+        {
+          "id": "disable_diagtrack",
+          "type": "service",
+          "description": "Connected User Experiences and Telemetry",
+          "require_admin": true,
+          "action": {
+            "service_name": "DiagTrack",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "automatic"
+          }
+        },
+        {
+          "id": "disable_dmwappushservice",
+          "type": "service",
+          "description": "设备管理无线应用程序协议 (WAP) 推送消息路由服务",
+          "require_admin": true,
+          "action": {
+            "service_name": "dmwappushservice",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "delayed-auto"
+          }
+        },
+        {
+          "id": "disable_wsearch",
+          "type": "service",
+          "description": "Windows Search",
+          "require_admin": true,
+          "action": {
+            "service_name": "WSearch",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "delayed-auto"
+          }
+        },
+        {
+          "id": "disable_sysmain",
+          "type": "service",
+          "description": "SysMain",
+          "require_admin": true,
+          "action": {
+            "service_name": "SysMain",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "automatic"
+          }
+        },
+        {
+          "id": "disable_spooler",
+          "type": "service",
+          "description": "Print Spooler",
+          "require_admin": true,
+          "action": {
+            "service_name": "Spooler",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "automatic"
+          }
+        },
+        {
+          "id": "disable_wbiosrvc",
+          "type": "service",
+          "description": "Windows Biometric Service",
+          "require_admin": true,
+          "action": {
+            "service_name": "WbioSrvc",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "automatic"
+          }
+        },
+        {
+          "id": "disable_remoteregistry",
+          "type": "service",
+          "description": "Remote Registry",
+          "require_admin": true,
+          "action": {
+            "service_name": "RemoteRegistry",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "disabled"
+          }
+        },
+        {
+          "id": "disable_pcasvc",
+          "type": "service",
+          "description": "Program Compatibility Assistant Service",
+          "require_admin": true,
+          "action": {
+            "service_name": "PcaSvc",
+            "startup_type": "disabled",
+            "stop_service": true
+          },
+          "rollback": {
+            "startup_type": "automatic"
+          }
+        }
+      ]
+    }
+  }
+}
